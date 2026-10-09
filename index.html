@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malik Bin Anas College of West Africa</title>
+    <style>
+      :root {
+        --navy-900: #061b35;
+        --navy-800: #0e2d52;
+        --navy-700: #021cff;
+        --blue-500: #1d67d8;
+        --gold-500: #f4c64d;
+        --gold-400: #f7d77a;
+        --white: #ffffff;
+        --text: #1d2a39;
+        --muted: #52677e;
+        --line: rgba(13, 36, 63, 0.12);
+        --shadow: 0 18px 45px rgba(8, 19, 39, 0.12);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        background: #fff;
+        color: var(--text);
+        line-height: 1.6;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      button, input, select, textarea { font: inherit; }
+      button { cursor: pointer; }
+
+      .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(6, 27, 53, 0.9);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav {
+        min-height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--white);
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        color: var(--navy-900);
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 1.1rem;
+        letter-spacing: 0.01em;
+      }
+
+      .brand small {
+        display: block;
+        font-size: 0.66rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+
+      .main-nav {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 26px;
+      }
+
+      .main-nav a {
+        color: rgba(255,255,255,0.8);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+
+      .main-nav a:hover { color: var(--gold-500); }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 24px;
+        border-radius: 12px;
+        font-weight: 700;
+        border: 1px solid transparent;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+        color: var(--navy-900);
+        box-shadow: 0 16px 30px rgba(244, 198, 77, 0.25);
+      }
+      .btn-secondary {
+        background: transparent;
+        border-color: rgba(255,255,255,0.18);
+        color: var(--white);
+      }
+
+      .hero {
+        position: relative;
+        padding: 90px 0 70px;
+        overflow: hidden;
+        background-image:
+          linear-gradient(120deg, rgba(4, 1, 34, 0.932), rgba(4, 0, 255, 0.8)),
+          url('c:\Users\BONGOMAN55\Desktop\B-SITE\pw\cam.jpg');
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(4, 18, 35, 0.12);
+      }
+
+      .hero-grid, .section, .stats-bar, .site-footer { position: relative; z-index: 1; }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: 42px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 18px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: var(--gold-500);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .eyebrow.dark {
+        background: rgba(29, 103, 216, 0.1);
+        border-color: rgba(29, 103, 216, 0.12);
+        color: var(--blue-500);
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.9rem, 5vw, 5.2rem);
+        line-height: 1.04;
+        letter-spacing: -0.06em;
+        margin-bottom: 18px;
+      }
+      .hero-copy h1 span { color: var(--gold-500); }
+      .hero-copy p {
+        max-width: 620px;
+        font-size: 1.08rem;
+        color: rgba(255,255,255,0.82);
+        margin-bottom: 28px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 30px;
+      }
+
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .hero-badges span {
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .hero-visual { display: flex; justify-content: center; }
+      .hero-panel {
+        position: relative;
+        width: min(100%, 510px);
+        min-height: 520px;
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255,255,255,0.1);
+        background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(201, 13, 13, 0.08));
+        overflow: hidden;
+        animation: floatCard 4s ease-in-out infinite;
+      }
+
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      .student-figure {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 190px;
+        height: 290px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: radial-gradient(circle at top, rgba(244,198,77,0.5), rgba(29,103,216,0.15) 52%, rgba(255,255,255,0.05) 100%);
+      }
+      .figure-circle {
+        position: absolute;
+        top: 18px;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fff, #dfe9f8);
+      }
+      .figure-body {
+        position: absolute;
+        bottom: 0;
+        width: 150px;
+        height: 180px;
+        border-radius: 70px 70px 18px 18px;
+        background: linear-gradient(180deg, var(--gold-500), #d79f1a);
+        box-shadow: 0 16px 35px rgba(244, 198, 77, 0.28);
+      }
+
+      .student-card {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(12,24,42,0.75);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: var(--white);
+        backdrop-filter: blur(6px);
+      }
+      .student-card strong { display: block; font-size: 0.92rem; }
+      .student-card small {
+        display: block;
+        color: rgba(255,255,255,0.7);
+        font-size: 0.72rem;
+      }
+
+      .student-one { top: 36px; left: 29px; animation: drift 5s ease-in-out infinite; }
+      .student-two { right: 24px; bottom: 90px; animation: driftTwo 5s ease-in-out infinite; }
+      @keyframes drift { 0%,100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
+      @keyframes driftTwo { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+      .mini-avatar {
+        width: 42px; height: 42px;
+        display: grid; place-items: center;
+        border-radius: 50%;
+        font-size: 0.74rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--gold-500), #e8af0e);
+        color: var(--navy-900);
+      }
+      .mini-avatar.alt {
+        background: linear-gradient(135deg, var(--blue-500), var(--blue-500));
+        color: var(--white);
+      }
+
+      .floating-stat {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        padding: 12px 16px;
+        border-radius: 14px;
+        background: rgba(6,27,53,0.8);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: var(--white);
+      }
+      .floating-stat strong { color: var(--gold-500); font-size: 1.25rem; }
+      .floating-stat span {
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+      .stat-top { right: 18px; top: 122px; }
+      .stat-bottom { left: 26px; bottom: 36px; }
+
+      .stats-bar { background: var(--gold-500); padding: 30px 0; }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        gap: 20px;
+      }
+      .stat-box { text-align: center; color: var(--navy-900); }
+      .stat-box strong {
+        display: block;
+        font-size: clamp(1.4rem, 2vw, 2.2rem);
+        margin-bottom: 8px;
+      }
+      .stat-box span { font-size: 0.85rem; font-weight: 700; }
+
+      .section { padding: 110px 0; }
+      .section-heading { max-width: 760px; margin-bottom: 36px; }
+      .section-heading.center { text-align: center; margin-left: auto; margin-right: auto; }
+      .section-heading h2 {
+        font-size: clamp(2.1rem, 3vw, 3.1rem);
+        line-height: 1.15;
+        letter-spacing: -0.05em;
+        color: var(--navy-900);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .about-copy { color: var(--muted); font-size: 1.04rem; }
+      .about-copy p + p { margin-top: 18px; }
+
+      .feature-list { display: grid; gap: 18px; }
+      .feature-item {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        padding: 18px 18px;
+        background: rgba(29,103,216,0.04);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+      }
+      .feature-item span {
+        width: 44px; height: 44px;
+        display: grid; place-items: center;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+        color: var(--navy-900);
+        font-weight: 800;
+      }
+      .feature-item h3 { margin-bottom: 6px; color: var(--navy-900); }
+      .feature-item p { color: var(--muted); }
+
+      .history { background: linear-gradient(180deg, #f5f8fd, #edf3fd); }
+      .history-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: center;
+      }
+      .history-image img {
+        width: 100%; height: 440px; object-fit: cover;
+        border-radius: 24px; box-shadow: var(--shadow);
+      }
+      .history-copy p { color: var(--muted); margin-top: 18px; }
+
+      .departments { background: linear-gradient(180deg, #f8fbff, #edf3ff); }
+      .departments-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px;
+      }
+      .department-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+      .department-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(29,103,216,0.24);
+      }
+      .department-card img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .department-card .department-body {
+        padding: 18px 18px 20px;
+      }
+      .department-card h3 {
+        color: var(--navy-900);
+        margin-bottom: 8px;
+        font-size: 1.18rem;
+      }
+      .department-card p {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .motion-gallery {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 22px;
+      }
+      .motion-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 22px;
+        min-height: 260px;
+        box-shadow: var(--shadow);
+      }
+      .motion-card.large { min-height: 350px; }
+      .motion-card img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .motion-card:hover img { transform: scale(1.05); }
+      .card-tag {
+        position: absolute;
+        left: 18px; bottom: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(6,27,53,0.8);
+        color: var(--white);
+        border-radius: 999px;
+        padding: 10px 12px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .faculty {
+        background: linear-gradient(180deg, #ffffff, #f4f7fb);
+      }
+      .faculty-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .faculty-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .faculty-card img {
+        width: 100%; height: 210px; object-fit: cover;
+      }
+      .faculty-info {
+        padding: 18px 16px 20px;
+      }
+      .faculty-info h3 {
+        color: var(--navy-900);
+        margin-bottom: 6px;
+        font-size: 1rem;
+      }
+      .role {
+        display: inline-block;
+        margin-bottom: 10px;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--blue-500);
+        font-weight: 700;
+      }
+
+      .apply {
+        background: linear-gradient(180deg, #f8fafc, #eef4fd);
+      }
+      .apply-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 26px;
+        align-items: center;
+      }
+      .apply-copy p {
+        color: var(--muted);
+        margin-top: 16px;
+      }
+      .apply-copy .btn { margin-top: 18px; }
+
+      .apply-visual { position: relative; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); }
+      .apply-visual img {
+        width: 100%; height: 420px; object-fit: cover;
+      }
+      .apply-card {
+        position: absolute;
+        left: 24px; top: 24px;
+        display: flex; flex-direction: column; gap: 6px;
+        background: rgba(6,27,53,0.82);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: var(--white);
+        padding: 14px 16px;
+        border-radius: 14px;
+      }
+      .apply-card strong { font-size: 1rem; }
+      .apply-card span {
+        color: rgba(255,255,255,0.74);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(2,8,20,0.7);
+        z-index: 40;
+        opacity: 1;
+        transition: opacity 0.2s ease;
+      }
+      .modal-backdrop.hidden, .modal.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .modal {
+        position: fixed;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(760px, calc(100% - 24px));
+        max-height: 90vh;
+        overflow-y: auto;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: 0 30px 80px rgba(2,8,20,0.3);
+        z-index: 50;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 22px 24px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+      .modal-header h3 {
+        color: var(--navy-900);
+        font-size: 1.7rem;
+        letter-spacing: -0.04em;
+      }
+      .close-modal {
+        width: 42px; height: 42px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: rgba(29,103,216,0.04);
+        color: var(--navy-900);
+        font-size: 1.7rem;
+        line-height: 1;
+      }
+
+      .application-form {
+        padding: 26px 24px 24px;
+      }
+      .field-row { margin-bottom: 18px; }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--navy-900);
+      }
+      input, select, textarea {
+        width: 100%;
+        margin-top: 8px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid #d8e2f0;
+        background: #f9fbff;
+        color: var(--text);
+      }
+      input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: rgba(29,103,216,0.4);
+        box-shadow: 0 0 0 4px rgba(29,103,216,0.08);
+      }
+      textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+      .submit-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      #formStatus {
+        color: var(--blue-500);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .site-footer {
+        background: var(--navy-900);
+        color: rgba(255,255,255,0.82);
+        padding-top: 48px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.7fr 0.9fr;
+        gap: 24px;
+        padding-bottom: 28px;
+      }
+      .site-footer h3, .site-footer h4 { color: var(--white); margin-bottom: 12px; }
+      .site-footer ul {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+      .site-footer a, .site-footer li { color: rgba(255,255,255,0.8); }
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding: 18px 0 34px;
+        text-align: center;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid, .about-grid, .history-grid, .apply-grid, .motion-gallery, .faculty-grid, .departments-grid, .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero-grid { grid-template-columns: 1fr; }
+        .hero-copy { text-align: center; }
+        .hero-actions, .hero-badges { justify-content: center; }
+        .departments-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      }
+
+      @media (max-width: 760px) {
+        .nav { flex-direction: column; justify-content: center; padding: 18px 0; }
+        .main-nav { justify-content: center; }
+        .stats-grid, .about-grid, .history-grid, .faculty-grid, .departments-grid, .apply-grid, .footer-grid, .two-col {
+          grid-template-columns: 1fr;
+        }
+        .section { padding: 80px 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#home" class="brand" aria-label="Malik Bin Anas College of West Africa home">
+          <span class="brand-mark">M</span>
+          <div>
+            <strong>Malik Bin Anas</strong>
+            <small>College of West Africa</small>
+          </div>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#history">History</a>
+          <a href="#faculty">Faculty</a>
+          <a href="#departments">Departments</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button type="button" class="btn btn-primary open-modal-btn">Apply Now</button>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Excellence, character &amp; opportunity</span>
+            <h1>Shaping bright futures at<br /><span>Malik Bin Anas College</span></h1>
+            <p>
+              Located at 2E Rokupa Estate, we nurture confident, capable, and purpose-driven students through quality teaching, leadership, innovation, and community engagement.
+            </p>
+
+            <div class="hero-actions">
+              <button type="button" class="btn btn-primary open-modal-btn">Start Application</button>
+              <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+
+            <div class="hero-badges">
+              <span>Student-Centered</span>
+              <span>Quality Learning</span>
+              <span>Future Ready</span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-panel">
+              <div class="student-card student-one">
+                <div class="mini-avatar">ST</div>
+                <div>
+                  <strong>Student Life</strong>
+                  <small>Active &amp; vibrant</small>
+                </div>
+              </div>
+
+              <div class="student-card student-two">
+                <div class="mini-avatar alt">CL</div>
+                <div>
+                  <strong>Campus Energy</strong>
+                  <small>Creative learning</small>
+                </div>
+              </div>
+
+              <div class="student-figure">
+                <div class="figure-circle"></div>
+                <div class="figure-body"></div>
+              </div>
+
+              <div class="floating-stat stat-top">
+                <strong>1,200+</strong>
+                <span>Students</span>
+              </div>
+
+              <div class="floating-stat stat-bottom">
+                <strong>28</strong>
+                <span>Academic Staff</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-bar">
+        <div class="container stats-grid">
+          <div class="stat-box"><strong>1,200+</strong><span>Student population</span></div>
+          <div class="stat-box"><strong>28</strong><span>Faculty members</span></div>
+          <div class="stat-box"><strong>20+</strong><span>Academic programs</span></div>
+          <div class="stat-box"><strong>2E</strong><span>Rokupa Estate</span></div>
+        </div>
+      </section>
+
+      <section class="section intro" id="about">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow dark">Who we are</span>
+            <h2>Building a community of excellence</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy">
+              <p>
+                Malik Bin Anas College of West Africa is committed to empowering students with the knowledge, values, and skills needed to thrive in a rapidly changing world. Our learning environment promotes academic excellence, personal growth, and active citizenship.
+              </p>
+              <p>
+                We believe education should not only prepare students for exams, but also for life. Through practical learning, mentorship, and leadership opportunities, we help students become confident, capable, and purpose-driven members of society.
+              </p>
+            </div>
+
+            <div class="feature-list">
+              <div class="feature-item">
+                <span>01</span>
+                <div>
+                  <h3>Academic Excellence</h3>
+                  <p>Strong teaching, structured learning, and measurable results.</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <span>02</span>
+                <div>
+                  <h3>Student Development</h3>
+                  <p>Leadership, communication, skills, and personal confidence.</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <span>03</span>
+                <div>
+                  <h3>Community Impact</h3>
+                  <p>Students grow as responsible citizens and future leaders.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section history" id="history">
+        <div class="container history-grid">
+          <div class="history-image">
+            <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\1788567801017.jpg" alt="College students learning together" />
+          </div>
+
+          <div class="history-copy">
+            <span class="eyebrow dark">Our history</span>
+            <h2>A college built on purpose.</h2>
+            <p>
+              Malik Bin Anas College of West Africa was established to provide accessible, quality education rooted in discipline, knowledge, and values. From its earliest beginnings, the institution set out to support students in achieving academic success while developing leadership, responsibility, and social awareness.
+            </p>
+            <p>
+              Over the years, the college has grown into a respected learning center, creating opportunities for students to pursue meaningful academic and personal growth. It continues to empower learners, strengthen local communities, and prepare the next generation for a brighter future.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section departments" id="departments">
+        <div class="container">
+          <div class="section-heading center">
+            <span class="eyebrow dark">Our departments</span>
+            <h2>Academic pathways built for relevance and impact.</h2>
+          </div>
+
+          <div class="departments-grid">
+            <article class="department-card">
+              <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\1786724171323.png" alt="Computer Sciences" />
+              <div class="department-body">
+                <h3>Computer Sciences</h3>
+                <p>Empowering students with digital literacy, software fundamentals, and innovation-led learning.</p>
+              </div>
+            </article>
+
+            <article class="department-card">
+              <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\IMG-20250705-WA0093(2).jpg" alt="Procurement and Supply Chain Management" />
+              <div class="department-body">
+                <h3>Procurement &amp; Supply Chain Management</h3>
+                <p>Developing practical knowledge in sourcing, logistics, operations, and strategic management.</p>
+              </div>
+            </article>
+
+            <article class="department-card">
+              <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\IMG-20260630-WA01896.jpg" alt="Human Resource Management" />
+              <div class="department-body">
+                <h3>Human Resource Management</h3>
+                <p>Preparing students for people-centered leadership, workforce planning, and organizational development.</p>
+              </div>
+            </article>
+
+            <article class="department-card">
+              <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\IMG-20260805-WA0085.jpg" alt="Nursing Reproductive and Public Health" />
+              <div class="department-body">
+                <h3>Nursing (Reproductive &amp; Public Health)</h3>
+                <p>Building compassionate care and public health knowledge with a focus on community wellbeing.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section motion" aria-labelledby="student-life-title">
+        <div class="container">
+          <div class="section-heading align-left">
+            <span class="eyebrow dark">Student life</span>
+            <h2 id="student-life-title">Students in motion, learning with purpose.</h2>
+          </div>
+
+          <div class="motion-gallery">
+            <div class="motion-card large">
+              <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\IMG-20260128-WA0094.jpg" alt="Students collaborating" />
+              <div class="card-tag">Campus Activity - CAMPUS DEBATE SOCIETY</div>
+            </div>
+            <div class="motion-card small">
+              <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\IMG-20260718-WA0011.jpg" alt="Students studying outside" />
+              <div class="card-tag">Learning Together</div>
+            </div>
+            <div class="motion-card small">
+              <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\1786724171323.png" alt="Students in classroom" />
+              <div class="card-tag">Innovation</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <section class="section apply" id="apply">
+        <div class="container apply-grid">
+          <div class="apply-copy">
+            <span class="eyebrow dark">Admissions</span>
+            <h2>Apply to Malik Bin Anas College</h2>
+            <p>
+              We welcome ambitious students seeking a purposeful, supportive, and future-focused college experience. Begin your application today.
+            </p>
+            <p>
+              Complete the short application form to begin the admission process and speak with our admissions team about the right program for you.
+            </p>
+            <button type="button" class="btn btn-primary open-modal-btn">Apply Now</button>
+          </div>
+
+          <div class="apply-visual">
+            <div class="apply-card">
+              <strong>Admission Support</strong>
+              <span>Friendly guidance for every applicant</span>
+            </div>
+            <img src="c:\Users\BONGOMAN55\Desktop\B-SITE\pw\IMG-20260808-WA0083.jpg" alt="Students discussion" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>Malik Bin Anas College of West Africa</h3>
+          <p>2E Rokupa Estate, Sierra Leone</p>
+        </div>
+
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#apply">Admissions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>Email: admissions@malikbinanascollege.edu</li>
+            <li>Phone: +232 88 877 469</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>© 2023 Malik Bin Anas College of West Africa. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div class="modal-backdrop hidden" id="applicationModalBackdrop"></div>
+    <div class="modal hidden" id="applicationModal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div>
+          <span class="eyebrow dark">Admissions</span>
+          <h3 id="modalTitle">Application Form</h3>
+        </div>
+        <button type="button" class="close-modal" aria-label="Close application form">×</button>
+      </div>
+
+      <form id="applicationForm" class="application-form">
+        <div class="field-row">
+          <label>
+            Full name
+            <input type="text" name="fullName" placeholder="Enter your full name" required />
+          </label>
+        </div>
+
+        <div class="field-row two-col">
+          <label>
+            Email address
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Phone number
+            <input type="tel" name="phone" placeholder="+234 000 000 0000" required />
+          </label>
+        </div>
+
+        <div class="field-row two-col">
+          <label>
+            Program of interest
+            <select name="program" required>
+              <option value="">Select program</option>
+              <option>Computer Sciences</option>
+              <option>Procurement &amp; Supply Chain Management</option>
+              <option>Human Resource Management</option>
+              <option>Nursing (Reproductive &amp; Public Health)</option>
+            </select>
+          </label>
+
+          <label>
+            Admission type
+            <select name="admissionType" required>
+              <option value="">Select type</option>
+              <option>Fresh student</option>
+              <option>Transfer student</option>
+              <option>Part-time student</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label>
+            Why do you want to join Malik Bin Anas College?
+            <textarea name="message" rows="5" placeholder="Tell us about your goals and interest in joining the college." required></textarea>
+          </label>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+          <span id="formStatus" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+
+    <script>
+       
+
+      const facultyGrid = document.getElementById('facultyGrid');
+      if (facultyGrid) {
+        facultyGrid.innerHTML = facultyMembers.map((member) => `
+          <article class="faculty-card">
+            <img src="${member.image}" alt="${member.name} portrait" />
+            <div class="faculty-info">
+              <h3>${member.name}</h3>
+              <p class="role">${member.role}</p>
+            </div>
+          </article>
+        `).join('');
+      }
+
+      const modal = document.getElementById('applicationModal');
+      const backdrop = document.getElementById('applicationModalBackdrop');
+      const openModalButtons = document.querySelectorAll('.open-modal-btn');
+      const closeModalButton = document.querySelector('.close-modal');
+      const form = document.getElementById('applicationForm');
+      const formStatus = document.getElementById('formStatus');
+
+      function openModal() {
+        if (modal && backdrop) {
+          modal.classList.remove('hidden');
+          backdrop.classList.remove('hidden');
+        }
+      }
+
+      function closeModal() {
+        if (modal && backdrop) {
+          modal.classList.add('hidden');
+          backdrop.classList.add('hidden');
+        }
+      }
+
+      openModalButtons.forEach((button) => button.addEventListener('click', openModal));
+      if (closeModalButton) closeModalButton.addEventListener('click', closeModal);
+      if (backdrop) backdrop.addEventListener('click', closeModal);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal();
+      });
+
+      if (form) {
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+          const storedEntries = JSON.parse(localStorage.getItem('collegeApplications') || '[]');
+          storedEntries.push({ ...data, submittedAt: new Date().toISOString() });
+          localStorage.setItem('collegeApplications', JSON.stringify(storedEntries));
+
+          if (formStatus) {
+            formStatus.textContent = 'Application submitted successfully.';
+            formStatus.style.color = '#1d67d8';
+          }
+
+          form.reset();
+          downloadCsv(storedEntries);
+
+          setTimeout(() => {
+            closeModal();
+            if (formStatus) formStatus.textContent = '';
+          }, 1200);
+        });
+      }
+
+      function downloadCsv(rows) {
+        if (!rows.length) return;
+        const headings = Object.keys(rows[0]).filter((key) => key !== 'submittedAt');
+        const csvRows = [headings.join(',')];
+
+        rows.forEach((row) => {
+          const values = headings.map((heading) => {
+            const value = row[heading] ?? '';
+            return `"${String(value).replace(/"/g, '""')}"`;
+          });
+          csvRows.push(values.join(','));
+        });
+
+        const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'malik-bin-anas-college-applications.csv';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>
